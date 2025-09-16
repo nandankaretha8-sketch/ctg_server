@@ -123,6 +123,40 @@ app.use(async (req, res, next) => {
   next();
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'CTG Trading API is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV,
+    serverless: true,
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      users: '/api/users',
+      challenges: '/api/challenges',
+      leaderboard: '/api/leaderboard',
+      settings: '/api/settings',
+      visitors: '/api/visitors',
+      signalPlans: '/api/signal-plans',
+      support: '/api/support',
+      subscriptions: '/api/subscriptions',
+      propFirmPackages: '/api/prop-firm-packages',
+      propFirmServices: '/api/prop-firm-services',
+      youtubeVideos: '/api/youtube-videos',
+      footerSettings: '/api/footer-settings',
+      payments: '/api/payments',
+      email: '/api/email',
+      notifications: '/api/notifications',
+      chatboxes: '/api/chatboxes',
+      mentorshipPlans: '/api/mentorship-plans',
+      mentorshipChatboxes: '/api/mentorship-chatboxes',
+      mentorshipChat: '/api/mentorship-chat'
+    }
+  });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.status(200).json({
