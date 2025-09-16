@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/scheduled-tasks.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/mt5-sync.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/push-cleanup.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/scheduled-tasks",
+      "dest": "api/scheduled-tasks.js"
+    },
+    {
+      "src": "/api/mt5-sync",
+      "dest": "api/mt5-sync.js"
+    },
+    {
+      "src": "/api/push-cleanup",
+      "dest": "api/push-cleanup.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/index.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30
+    },
+    "api/scheduled-tasks.js": {
+      "maxDuration": 60
+    },
+    "api/mt5-sync.js": {
+      "maxDuration": 300
+    },
+    "api/push-cleanup.js": {
+      "maxDuration": 60
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/scheduled-tasks",
+      "schedule": "* * * * *"
+    },
+    {
+      "path": "/api/mt5-sync",
+      "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/push-cleanup",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}
