@@ -13,5 +13,23 @@
     "api/push-cleanup.js": {
       "maxDuration": 60
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/api/scheduled-tasks",
+      "dest": "api/scheduled-tasks.js"
+    },
+    {
+      "src": "/api/mt5-sync",
+      "dest": "api/mt5-sync.js"
+    },
+    {
+      "src": "/api/push-cleanup",
+      "dest": "api/push-cleanup.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/index.js"
+    }
+  ]
 }
