@@ -13,19 +13,5 @@
     "api/push-cleanup.js": {
       "maxDuration": 60
     }
-  },
-  "crons": [
-    {
-      "path": "/api/scheduled-tasks",
-      "schedule": "0 */6 * * *"
-    },
-    {
-      "path": "/api/mt5-sync",
-      "schedule": "0 */6 * * *"
-    },
-    {
-      "path": "/api/push-cleanup",
-      "schedule": "0 0 * * *"
-    }
-  ]
+  }
 }
