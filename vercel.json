@@ -17,11 +17,11 @@
   "crons": [
     {
       "path": "/api/scheduled-tasks",
-      "schedule": "* * * * *"
+      "schedule": "0 */6 * * *"
     },
     {
       "path": "/api/mt5-sync",
-      "schedule": "0 * * * *"
+      "schedule": "0 */6 * * *"
     },
     {
       "path": "/api/push-cleanup",
