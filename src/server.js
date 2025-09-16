@@ -81,6 +81,8 @@ const getAllowedOrigins = () => {
   // Add Vercel preview URLs if in production
   if (process.env.NODE_ENV === 'production') {
     origins.push(
+      'https://ctg-ten.vercel.app',
+      'https://ctg-nandankarethas-projects.vercel.app',
       'https://*.vercel.app',
       'https://*.vercel.com'
     );
