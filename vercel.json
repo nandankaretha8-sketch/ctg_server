@@ -1,48 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/index.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "api/scheduled-tasks.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "api/mt5-sync.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "api/push-cleanup.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/scheduled-tasks",
-      "dest": "api/scheduled-tasks.js"
-    },
-    {
-      "src": "/api/mt5-sync",
-      "dest": "api/mt5-sync.js"
-    },
-    {
-      "src": "/api/push-cleanup",
-      "dest": "api/push-cleanup.js"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "api/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "api/index.js"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  },
   "functions": {
     "api/index.js": {
       "maxDuration": 30
